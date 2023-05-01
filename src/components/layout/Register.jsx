@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
@@ -7,6 +7,7 @@ const Register = () => {
 
 
     const {createAccount} = useContext (AuthContext)
+    const [error, setError] = useState ("")
 
     const handleRegister = (e) => { 
 
@@ -19,6 +20,20 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
+
+        if (password <6) {
+
+            setError ('Password must be at least 6 characters')
+            return;
+        }
+
+
+
+
+
+
+      if (email && password) {
+
 
         createAccount (email, password)
         .then ((res) => { 
@@ -39,9 +54,19 @@ const Register = () => {
         .catch (err => { 
 
             console.log (err)
+            setError (`error: ${err.message}`)
         });
         
+       
       
+      }
+
+      else {
+
+        setError ('Please provide email and password')
+
+
+      }
 
         
 
@@ -61,7 +86,10 @@ const Register = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <p className='text-red-500'>{error}</p>
                         <Form onSubmit={handleRegister} className="card-body">
+
+                            
 
 
 
@@ -69,7 +97,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input name= 'UserName' type="text" placeholder="name" className="input input-bordered" />
+                                <input required name= 'UserName' type="text" placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -81,7 +109,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name='password' type="password" placeholder="password" className="input input-bordered" />
+                                <input required name='password' type="password" placeholder="password" className="input input-bordered" />
                                 
                             </div>
 
