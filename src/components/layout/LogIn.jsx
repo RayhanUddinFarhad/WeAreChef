@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProviders';
@@ -9,43 +9,71 @@ import { GoogleAuthProvider } from 'firebase/auth';
 const LogIn = () => {
 
 
-    const {googleLogIn, githubLogin} = useContext (AuthContext)
+    const { googleLogIn, githubLogin, logIn } = useContext(AuthContext)
 
 
+
+
+    const handleLogIn = (e) => {
+
+        e.preventDefault()
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log (email, password)
+
+        logIn (email, password)
+        .then ( (res) => { 
+
+            const user = res.user;
+
+            
+        })
+        .catch ( (err) => {
+
+
+            console.log (err);
+         })
+
+
+
+    }
 
     const handleGoogleLogin = () => {
 
 
         googleLogIn()
-        .then ((result) => { 
+            .then((result) => {
 
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-        })
-        .catch (err => { 
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+            })
+            .catch(err => {
 
-            console.log (err);
-        })
+                console.log(err);
+            })
     }
 
-    const handleGithubLogin = () => { 
+    const handleGithubLogin = () => {
 
 
-        githubLogin ()
-        .then ((result) => {
+        githubLogin()
+            .then((result) => {
 
-            const credential = GithubAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
 
-    // The signed-in user info.
-    const user = result.user;
-        })
-        .catch (err => {
+                // The signed-in user info.
+                const user = result.user;
+            })
+            .catch(err => {
 
-            console.log ( err)
-        })
+                console.log(err)
+            })
     }
 
 
@@ -61,18 +89,18 @@ const LogIn = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
+                        <Form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
+                                <input name='email' type="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
+                                <input name='password' type="password" placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -81,7 +109,7 @@ const LogIn = () => {
                                 <button className="btn-main">Login</button>
                             </div>
 
-                            <p>Don't have an account? <Link className='text-green-600 font-bold btn-link' to = "/register">Create an account</Link></p>
+                            <p>Don't have an account? <Link className='text-green-600 font-bold btn-link' to="/register">Create an account</Link></p>
 
                             <div>
 
@@ -93,11 +121,11 @@ const LogIn = () => {
                                 <button onClick={handleGithubLogin} className='flex items-center border p-2 rounded-lg'>
 
                                     <FaGithub className='mr-2'></FaGithub>
-                                    
+
                                     Sign In With Github Account
                                 </button>
                             </div>
-                        </div>
+                        </Form>
                     </div>
                 </div>
             </div>        </div>
