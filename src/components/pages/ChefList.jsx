@@ -6,7 +6,7 @@ const ChefList = ({data}) => {
 
     return (
         <div>
-            <div className="card w-96 h-full bg-base-100 shadow-xl">
+            <div className="card max-w-max lg:w-96 h-full bg-base-100 shadow-xl">
   <figure><img src={data.chefPicture} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{data.chefName}</h2>

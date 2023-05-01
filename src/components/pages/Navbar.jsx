@@ -12,7 +12,7 @@ const Navbar = () => {
         logOut()
         .then (() => { 
 
-            
+
         })
         .catch (err => {
 
@@ -34,6 +34,20 @@ const Navbar = () => {
                             <li><Link to="/">Home</Link></li>
 
                             <li><a>Blog</a></li>
+
+                            {
+
+user ? <>
+    <div className="w-10 rounded-full avatar">
+        <img src={user.photoURL} />
+
+    </div>
+    <button onClick={handleLogOut} className='btn-main'>LogOut</button>
+
+</> : <Link to="logIn" className="btn-main">Log In</Link>
+
+}
+
                         </ul>
                     </div>
                     <a className="font-extrabold normal-case text-3xl"> WeAre<span className='text-green-600'>Chef</span> </a>
@@ -45,7 +59,7 @@ const Navbar = () => {
                         <li><a>Blog</a></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end hidden lg:block">
 
                     {
 

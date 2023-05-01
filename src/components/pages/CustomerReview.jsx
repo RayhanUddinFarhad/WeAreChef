@@ -10,7 +10,7 @@ const CustomerReview = () => {
             
             </h1>
 
-<div className="card card-side bg-base-100 shadow-xl">
+<div className="card lg:card-side bg-base-100 shadow-xl">
   <figure><img className='h-96' src="https://i.ibb.co/KDnZ1SB/MYXJ-20220419103015094-save.jpg" alt="Movie"/></figure>
   <div className="card-body">
     <h2 className="text-center font-bold text-3xl">Rayhan Uddin Farhad</h2>
