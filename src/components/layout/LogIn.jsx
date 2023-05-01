@@ -9,7 +9,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 const LogIn = () => {
 
 
-    const {googleLogIn} = useContext (AuthContext)
+    const {googleLogIn, githubLogin} = useContext (AuthContext)
 
 
 
@@ -29,6 +29,26 @@ const LogIn = () => {
             console.log (err);
         })
     }
+
+    const handleGithubLogin = () => { 
+
+
+        githubLogin ()
+        .then ((result) => {
+
+            const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+        })
+        .catch (err => {
+
+            console.log ( err)
+        })
+    }
+
+
 
 
 
@@ -70,7 +90,7 @@ const LogIn = () => {
                                     Sign In With Google Account
                                 </button>
 
-                                <button className='flex items-center border p-2 rounded-lg'>
+                                <button onClick={handleGithubLogin} className='flex items-center border p-2 rounded-lg'>
 
                                     <FaGithub className='mr-2'></FaGithub>
                                     
