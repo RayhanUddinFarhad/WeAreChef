@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from '../providers/AuthProviders';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const LogIn = () => {
+
+
+    const {googleLogIn} = useContext (AuthContext)
+
+
+
+    const handleGoogleLogin = () => {
+
+
+        googleLogIn()
+        .then ((result) => { 
+
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+        })
+        .catch (err => { 
+
+            console.log (err);
+        })
+    }
+
+
+
     return (
         <div>
             <div className="hero min-h-screen ">
@@ -38,7 +65,7 @@ const LogIn = () => {
 
                             <div>
 
-                                <button className='flex items-center border p-2 rounded-lg my-2'>
+                                <button onClick={handleGoogleLogin} className='flex items-center border p-2 rounded-lg my-2'>
                                     <FcGoogle className='mr-2'></FcGoogle>
                                     Sign In With Google Account
                                 </button>
