@@ -10,7 +10,7 @@ const ChefList = ({data}) => {
   <figure><img src={data.chefPicture} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{data.chefName}</h2>
-    <div className="badge badge-secondary">{data.yearsOfExperience} yeasr of Experienced</div>
+    <div className="badge badge-secondary">{data.yearsOfExperience} years of Experienced</div>
 
 
     <div className='flex'>
