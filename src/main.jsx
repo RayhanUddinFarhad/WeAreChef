@@ -11,6 +11,7 @@ import Register from './components/layout/Register.jsx';
 import Home from './components/layout/Home.jsx';
 import AuthProviders from './components/providers/AuthProviders.jsx';
 import Recipe from './components/layout/Recipe.jsx';
+import Privaterouter from './components/PrivateRoute/Privaterouter.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
 
       {
         path : "/:id",
-        element : <Recipe></Recipe>,
+        element : <Privaterouter><Recipe></Recipe></Privaterouter>,
         loader : ({params}) => fetch (`https://chef-hunter-server-rayhanuddinfarhad.vercel.app/${params.id}`)
 
 

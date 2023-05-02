@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProviders';
@@ -10,6 +10,10 @@ const LogIn = () => {
 
 
     const { googleLogIn, githubLogin, logIn } = useContext(AuthContext)
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
 
 
@@ -28,6 +32,8 @@ const LogIn = () => {
         .then ( (res) => { 
 
             const user = res.user;
+
+            navigate(from, { replace: true });
 
             
         })
@@ -51,6 +57,7 @@ const LogIn = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                navigate(from, { replace: true });
             })
             .catch(err => {
 
@@ -69,6 +76,7 @@ const LogIn = () => {
 
                 // The signed-in user info.
                 const user = result.user;
+                navigate(from, { replace: true });
             })
             .catch(err => {
 

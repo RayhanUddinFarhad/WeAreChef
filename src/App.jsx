@@ -7,6 +7,7 @@ import Banner from './components/pages/Banner'
 import { Outlet } from 'react-router-dom'
 import Footer from './components/pages/Footer'
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 
 
 
-    
+    <ToastContainer></ToastContainer>
      
     </>
   )
