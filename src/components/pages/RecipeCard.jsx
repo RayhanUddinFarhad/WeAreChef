@@ -1,11 +1,25 @@
 import { Rating } from '@smastrom/react-rating';
-import React from 'react';
+import React, { useState } from 'react';
 import '@smastrom/react-rating/style.css'
+import { FaHeart } from 'react-icons/fa';
 
 
 const RecipeCard = ({ data }) => {
 
+
+
+    const [handleClick, sethandleClick] = useState (false)
+
+
+
     console.log (data)
+
+    // const handleClick = event => {
+    //     event.currentTarget.disabled = true;
+    //     console.log('button clicked');
+
+    //     handleClick (true)
+    //   };
     return (
         <div>
 
@@ -43,6 +57,9 @@ data.ingredients && data.ingredients.map ( (ing) =>       <p className=" bg-oran
       readOnly
     />
       </p>
+
+      <button onClick={ () =>  sethandleClick (true)}  className= {handleClick ? 'btn-disabled flex items-center' : 'btn-main flex items-center'}> <FaHeart className='mr-3' ></FaHeart>
+        Favourite</button>
     </div>
   </div>
 </div>
