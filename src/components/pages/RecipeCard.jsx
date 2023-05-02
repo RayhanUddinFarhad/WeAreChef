@@ -32,7 +32,7 @@ const RecipeCard = ({ data }) => {
             <div className="card  bg-base-100 my-5 shadow-xl">
 
                 
-                <figure><LazyLoadImage effect='black-and-white' className='w-96' src={data.recipePicture} alt="Shoes" /></figure>
+                <figure><LazyLoadImage effect='black-and-white' className='w-96' src={data.recipePicture} /></figure>
                 <div className="card-body space-y-5">
                     <h2 className="text-4xl font-extrabold text-center">
                         {data.recipeName}

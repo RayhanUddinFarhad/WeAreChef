@@ -29,8 +29,8 @@ const Recipe = () => {
 
                     <div className='flex justify-around my-5'>
 
-                        <p className='flex items-center '> <FaCookie className='text-yellow-600 mr-2'></FaCookie> Recipes : {data.numRecipes}</p>
-                        <p className='flex items-center'> <FcLike className='mr-2' /> Likes: {data.likes}</p>
+                        <p className='flex items-center text-3xl font-bold'> <FaCookie className='text-yellow-600 mr-2'></FaCookie> Recipes : {data.numRecipes}</p>
+                        <p className='flex items-center text-3xl font-bold'> <FcLike className='mr-2' /> Likes: {data.likes}</p>
                     </div>
 
 

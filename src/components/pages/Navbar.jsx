@@ -5,20 +5,20 @@ import ActiveLink from '../activeLink/ActiveLink';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log (user)
+    console.log(user)
 
 
-    const handleLogOut = () => { 
+    const handleLogOut = () => {
 
         logOut()
-        .then (() => { 
+            .then(() => {
 
 
-        })
-        .catch (err => {
+            })
+            .catch(err => {
 
-            console.log (err)
-         })
+                console.log(err)
+            })
     }
     return (
         <div>
@@ -38,16 +38,15 @@ const Navbar = () => {
 
                             {
 
-user ? <>
-    <div className="w-10 rounded-full avatar">
-        <img src={user.photoURL} />
+                                user ? <>
+                                    <div className="w-10 tooltip mx-auto" data-tip={user.displayName && user.displayName}>
+                                        <img className='w-10 rounded-full ' src={user.photoURL} />
 
-    </div>
-    <button onClick={handleLogOut} className='btn-main'>LogOut</button>
+                                    </div>
 
-</> : <Link to="logIn" className="btn-main">Log In</Link>
+                                </> : <Link to="logIn" className="btn-main">Log In</Link>
 
-}
+                            }
 
                         </ul>
                     </div>
@@ -57,7 +56,7 @@ user ? <>
                     <ul className="menu menu-horizontal px-1">
                         <li><ActiveLink to="/">Home</ActiveLink></li>
 
-                        <li><ActiveLink to= "/blogs">Blog</ActiveLink></li>
+                        <li><ActiveLink to="/blogs">Blog</ActiveLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end items-center hidden lg:block">
@@ -69,7 +68,6 @@ user ? <>
                                 <img className='w-10 rounded-full' src={user.photoURL} />
 
                             </div>
-                            <button onClick={handleLogOut} className='btn-main'>LogOut</button>
 
                         </> : <Link to="logIn" className="btn-main">Log In</Link>
 

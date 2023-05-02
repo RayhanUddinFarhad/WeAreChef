@@ -5,6 +5,8 @@ import SpinnerLottie from '../Animation/SpinnerLottie';
 const Chefs = () => {
     const [chef, setChef] = useState  ([])
 
+    //loader for data loading
+
     const [loading, setLoading] = useState  (false)
 
     useEffect (() => {
@@ -27,6 +29,9 @@ const Chefs = () => {
 
             
             </h1>
+
+
+            
 
 
             {

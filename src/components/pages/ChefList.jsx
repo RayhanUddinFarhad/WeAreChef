@@ -5,16 +5,13 @@ import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import lazyLoader from '../Animation/lazyLoader.json'
 
 
 
 const ChefList = ({ data }) => {
 
-  const [imageLoaded, setImageLoaded] = useState(false);
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
 
 
 
@@ -22,7 +19,7 @@ const ChefList = ({ data }) => {
     <div>
       <div className="card max-w-max lg:w-96 h-full bg-base-100 shadow-xl">
 
-  <LazyLoadImage  effect='blur' src= {data.chefPicture} alt="your-image-alt-text"
+  <LazyLoadImage delayTime={800} effect='blur' src= {data.chefPicture} alt="your-image-alt-text"
 ></LazyLoadImage>
 
         <div className="card-body">

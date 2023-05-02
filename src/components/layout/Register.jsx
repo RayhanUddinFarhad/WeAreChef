@@ -6,14 +6,14 @@ import { updateProfile } from 'firebase/auth';
 const Register = () => {
 
 
-    const {createAccount} = useContext (AuthContext)
-    const [error, setError] = useState ("")
+    const { createAccount } = useContext(AuthContext)
+    const [error, setError] = useState("")
     let navigate = useNavigate();
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
 
-    const handleRegister = (e) => { 
+    const handleRegister = (e) => {
 
         e.preventDefault()
 
@@ -25,9 +25,9 @@ const Register = () => {
         const password = form.password.value;
         const photoURL = form.photoURL.value;
 
-        if (password <6) {
+        if (password < 6) {
 
-            setError ('Password must be at least 6 characters')
+            setError('Password must be at least 6 characters')
             return;
         }
 
@@ -36,46 +36,46 @@ const Register = () => {
 
 
 
-      if (email && password) {
+        if (email && password) {
 
 
-        createAccount (email, password)
-        .then ((res) => { 
+            createAccount(email, password)
+                .then((res) => {
 
 
-            const created = res.user
+                    const created = res.user
 
 
-            updateProfile(created, {
+                    updateProfile(created, {
 
-                displayName : name, photoURL : photoURL
-                
-            })
+                        displayName: name, photoURL: photoURL
 
-            navigate(from, { replace: true });
+                    })
 
-
+                    navigate(from, { replace: true });
 
 
-        })
-        .catch (err => { 
-
-            console.log (err)
-            setError (`error: ${err.message}`)
-        });
-        
-       
-      
-      }
-
-      else {
-
-        setError ('Please provide email and password')
 
 
-      }
+                })
+                .catch(err => {
 
-        
+                    console.log(err)
+                    setError(`error: ${err.message}`)
+                });
+
+
+
+        }
+
+        else {
+
+            setError('Please provide email and password')
+
+
+        }
+
+
 
 
 
@@ -86,25 +86,25 @@ const Register = () => {
     return (
         <div>
 
-<div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Register now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6">If you don't have any account please Create your Account Now!</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <p className='text-red-500'>{error}</p>
+                        <p className='text-red-500'>{error}</p>
                         <Form onSubmit={handleRegister} className="card-body">
 
-                            
 
 
 
-                        <div className="form-control">
+
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input  name= 'UserName' type="text" placeholder="name" className="input input-bordered" />
+                                <input name='UserName' type="text" placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -117,7 +117,7 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input required name='password' type="password" placeholder="password" className="input input-bordered" />
-                                
+
                             </div>
 
 
@@ -128,16 +128,16 @@ const Register = () => {
                                 <input name='photoURL' type="text" placeholder="URL" className="input input-bordered" />
                             </div>
 
-                            
+
                             <div className="form-control mt-6">
                                 <button className="btn-main">Create an account</button>
                             </div>
 
-                            <p>Already have an account? <Link className='text-green-600 font-bold btn-link' to = "/logIn">Log In Now</Link></p>
+                            <p>Already have an account? <Link className='text-green-600 font-bold btn-link' to="/logIn">Log In Now</Link></p>
                         </Form>
                     </div>
                 </div>
-            </div>                 
+            </div>
         </div>
     );
 };

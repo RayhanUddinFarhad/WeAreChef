@@ -19,6 +19,8 @@ const LogIn = () => {
 
 
 
+// Log in with email and password
+
     const handleLogIn = (e) => {
 
         e.preventDefault()
@@ -27,27 +29,30 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log (email, password)
+        console.log(email, password)
 
-        logIn (email, password)
-        .then ( (res) => { 
+        logIn(email, password)
+            .then((res) => {
 
-            const user = res.user;
+                const user = res.user;
 
-            navigate(from, { replace: true });
-
-            
-        })
-        .catch ( (err) => {
+                navigate(from, { replace: true });
 
 
-            console.log (err);
-            setError  (`error ${err.message}`)
-         })
+            })
+            .catch((err) => {
+
+
+                console.log(err);
+                setError(`error ${err.message}`)
+            })
 
 
 
     }
+
+
+    //logIn with Google account
 
     const handleGoogleLogin = () => {
 
@@ -66,6 +71,8 @@ const LogIn = () => {
                 console.log(err);
             })
     }
+
+    //LogIn with Github account
 
     const handleGithubLogin = () => {
 
@@ -96,7 +103,7 @@ const LogIn = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6">To Enjoy Our All Features Please Log In Now</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <p className='text-red-600'>{error}</p>
@@ -122,21 +129,23 @@ const LogIn = () => {
 
                             <p>Don't have an account? <Link className='text-green-600 font-bold btn-link' to="/register">Create an account</Link></p>
 
-                            <div>
 
-                                <button onClick={handleGoogleLogin} className='flex items-center border p-2 rounded-lg my-2'>
-                                    <FcGoogle className='mr-2'></FcGoogle>
-                                    Sign In With Google Account
-                                </button>
-
-                                <button onClick={handleGithubLogin} className='flex items-center border p-2 rounded-lg'>
-
-                                    <FaGithub className='mr-2'></FaGithub>
-
-                                    Sign In With Github Account
-                                </button>
-                            </div>
                         </Form>
+
+                        <div className='mx-auto'>
+
+                            <button onClick={handleGoogleLogin} className='flex items-center border p-2 rounded-lg my-2'>
+                                <FcGoogle className='mr-2'></FcGoogle>
+                                Sign In With Google Account
+                            </button>
+
+                            <button onClick={handleGithubLogin} className='flex items-center border p-2 rounded-lg'>
+
+                                <FaGithub className='mr-2'></FaGithub>
+
+                                Sign In With Github Account
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>        </div>
