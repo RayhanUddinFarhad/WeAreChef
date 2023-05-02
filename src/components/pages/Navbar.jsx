@@ -64,7 +64,7 @@ user ? <>
                     {
 
                         user ? <>
-                            <div className="w-10 rounded-full avatar">
+                            <div className="w-10 rounded-full avatar tooltip" data-tip={user.displayName && user.displayName}>
                                 <img src={user.photoURL} />
 
                             </div>
