@@ -41,7 +41,14 @@ const Recipe = () => {
 
             </div>
 
-            <div>
+            <div className='my-32'>
+
+
+            <h1 className='text-4xl font-semibold  border-green-600 text-center'>Recipes <span className='text-green-600 font-bold'>Info</span>
+            <hr className=' bg-green-600 mx-96 text-center my-2 h-1' />
+
+            
+            </h1>
 
                {
 

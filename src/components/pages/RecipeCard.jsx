@@ -2,6 +2,11 @@ import { Rating } from '@smastrom/react-rating';
 import React, { useState } from 'react';
 import '@smastrom/react-rating/style.css'
 import { FaHeart } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
+
 
 
 const RecipeCard = ({ data }) => {
@@ -14,16 +19,15 @@ const RecipeCard = ({ data }) => {
 
     console.log (data)
 
-    // const handleClick = event => {
-    //     event.currentTarget.disabled = true;
-    //     console.log('button clicked');
 
-    //     handleClick (true)
-    //   };
+
+
+
+   
     return (
         <div>
 
-<div className="card  bg-base-100 shadow-xl">
+<div className="card  bg-base-100 my-5 shadow-xl">
   <figure><img className='w-96' src= {data.recipePicture} alt="Shoes" /></figure>
   <div className="card-body space-y-5">
     <h2 className="text-4xl font-extrabold text-center">
@@ -58,11 +62,28 @@ data.ingredients && data.ingredients.map ( (ing) =>       <p className=" bg-oran
     />
       </p>
 
+
+     
+
       <button onClick={ () =>  sethandleClick (true)}  className= {handleClick ? 'btn-disabled flex items-center' : 'btn-main flex items-center'}> <FaHeart className='mr-3' ></FaHeart>
         Favourite</button>
+
+
+
+        <div>
+
+            {
+
+                handleClick && toast.success (`Your favourite recipe ${data.recipeName} has been added`)
+            }
+
+           
+        </div>
     </div>
   </div>
 </div>
+
+<ToastContainer></ToastContainer>
         </div>
     );
 };

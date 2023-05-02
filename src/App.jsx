@@ -6,6 +6,8 @@ import Navbar from './components/pages/Navbar'
 import Banner from './components/pages/Banner'
 import { Outlet } from 'react-router-dom'
 import Footer from './components/pages/Footer'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +22,7 @@ function App() {
     </div>
 
     <Footer></Footer>
+
 
 
     
