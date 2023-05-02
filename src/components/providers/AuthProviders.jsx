@@ -20,15 +20,21 @@ const AuthProviders = ({children}) => {
 
 
     const [user, setUser] = useState("")
+    const [loading, setLoading] = useState (true)
 
     const googleLogIn = () => {
 
+        setLoading (true)
+
 
         return signInWithPopup (auth, provider)
+        
     }
 
 
     const githubLogin = () => {
+
+        setLoading (true)
 
 
         return signInWithPopup (auth, gitHubprovider)
@@ -39,6 +45,7 @@ const AuthProviders = ({children}) => {
 
 
      const createAccount = (email, password) => { 
+        setLoading (true)
 
 
         return createUserWithEmailAndPassword (auth, email, password)
@@ -47,11 +54,14 @@ const AuthProviders = ({children}) => {
 
      const logIn = (email, password) => { 
 
+        setLoading (true)
+
 
         return signInWithEmailAndPassword (auth, email, password)
      }
 
      const logOut = () => { 
+        setLoading (true)
 
 
         return signOut (auth)
@@ -64,6 +74,7 @@ const AuthProviders = ({children}) => {
         const unsubscribe = onAuthStateChanged (auth, (currentuser) => {
 
             setUser (currentuser)
+            setLoading  (false)
         })
 
         return () => {
@@ -81,7 +92,8 @@ const AuthProviders = ({children}) => {
         githubLogin,
         createAccount,
         logIn,
-        logOut
+        logOut,
+        loading
     }
 
 

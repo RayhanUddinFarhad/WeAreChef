@@ -4,10 +4,15 @@ import { AuthContext } from '../providers/AuthProviders';
 
 const Privaterouter = ({children}) => {
 
-    const {user} = useContext (AuthContext)
+    const {user, loading} = useContext (AuthContext)
     const location = useLocation()
 
     console.log (location)
+
+    if (loading) {
+
+        return <progress className="progress w-56"></progress>
+    }
 
 
     if (user) {

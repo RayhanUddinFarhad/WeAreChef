@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
 
@@ -8,6 +8,10 @@ const Register = () => {
 
     const {createAccount} = useContext (AuthContext)
     const [error, setError] = useState ("")
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     const handleRegister = (e) => { 
 
@@ -47,6 +51,9 @@ const Register = () => {
                 displayName : name, photoURL : photoURL
                 
             })
+
+            navigate(from, { replace: true });
+
 
 
 
@@ -97,13 +104,13 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input required name= 'UserName' type="text" placeholder="name" className="input input-bordered" />
+                                <input  name= 'UserName' type="text" placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name='email' type="email" placeholder="email" className="input input-bordered" />
+                                <input required name='email' type="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
