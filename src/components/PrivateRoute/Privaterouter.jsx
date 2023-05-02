@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
+import SpinnerLottie from '../Animation/SpinnerLottie';
 
 const Privaterouter = ({children}) => {
 
@@ -11,7 +12,7 @@ const Privaterouter = ({children}) => {
 
     if (loading) {
 
-        return <progress className="progress w-56"></progress>
+        return <SpinnerLottie></SpinnerLottie>
     }
 
 

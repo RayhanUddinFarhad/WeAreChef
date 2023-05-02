@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCookie } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../pages/RecipeCard';
+import SpinnerLottie from '../Animation/SpinnerLottie';
 
 const Recipe = () => {
 
     const data = useLoaderData()
+
+   
+
+
+
     return (
         <div>
             <div className='lg:flex justify-around my-10 items-center '>
@@ -50,9 +56,14 @@ const Recipe = () => {
             
             </h1>
 
+          
+            
+
                {
 
-                data.recipes && data.recipes.map (data => <RecipeCard data={data}></RecipeCard>)
+                data.recipes && data.recipes.map (data => <RecipeCard data={data}></RecipeCard> ,
+                
+                )
                }
 
 
