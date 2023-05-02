@@ -18,7 +18,7 @@ function App() {
 
     <Navbar></Navbar>
 
-    <div>
+    <div className='md:min-h-[calc(100vh-341px)]'>
       <Outlet></Outlet>
     </div>
 

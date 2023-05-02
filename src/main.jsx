@@ -13,6 +13,7 @@ import AuthProviders from './components/providers/AuthProviders.jsx';
 import Recipe from './components/layout/Recipe.jsx';
 import Privaterouter from './components/PrivateRoute/Privaterouter.jsx'
 import ErrorPage from './components/layout/ErrorPage.jsx';
+import Blogs from './components/layout/Blogs.jsx';
 
 
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
 
         path : "/register",
         element : <Register></Register>
+      },
+
+      {
+        path : "/blogs",
+        element : <Blogs></Blogs>
       }
     ]
   },
