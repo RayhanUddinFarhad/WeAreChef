@@ -5,6 +5,8 @@ import { FaHeart } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 
@@ -30,7 +32,7 @@ const RecipeCard = ({ data }) => {
             <div className="card  bg-base-100 my-5 shadow-xl">
 
                 
-                <figure><img className='w-96' src={data.recipePicture} alt="Shoes" /></figure>
+                <figure><LazyLoadImage effect='black-and-white' className='w-96' src={data.recipePicture} alt="Shoes" /></figure>
                 <div className="card-body space-y-5">
                     <h2 className="text-4xl font-extrabold text-center">
                         {data.recipeName}

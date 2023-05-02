@@ -3,6 +3,10 @@ import { FaCookie } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
+
 
 const ChefList = ({ data }) => {
 
@@ -18,9 +22,8 @@ const ChefList = ({ data }) => {
     <div>
       <div className="card max-w-max lg:w-96 h-full bg-base-100 shadow-xl">
 
-      <LazyLoad offset={100} placeholder={<div>Loading...</div>}>
-  <img src= {data.chefPicture} alt="your-image-alt-text" />
-</LazyLoad>
+  <LazyLoadImage  effect='blur' src= {data.chefPicture} alt="your-image-alt-text"
+></LazyLoadImage>
 
         <div className="card-body">
           <h2 className="card-title">{data.chefName}</h2>
