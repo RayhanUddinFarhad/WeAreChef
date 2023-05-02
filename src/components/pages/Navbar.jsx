@@ -40,7 +40,7 @@ const Navbar = () => {
 
                                 user ? <>
                                     <div className="w-10 tooltip mx-auto" data-tip={user.displayName && user.displayName}>
-                                        <img className='w-10 rounded-full ' src={user.photoURL} />
+                                        <img className='w-10 rounded-full ' src={user.photoURL && user.photoURL} />
 
                                     </div>
 
@@ -65,7 +65,7 @@ const Navbar = () => {
 
                         user ? <>
                             <div className="w-10  tooltip" data-tip={user.displayName && user.displayName}>
-                                <img className='w-10 rounded-full' src={user.photoURL} />
+                                <img className='w-10 rounded-full' src={ user.photoURL && user.photoURL} />
 
                             </div>
 
