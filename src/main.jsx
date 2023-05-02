@@ -12,6 +12,7 @@ import Home from './components/layout/Home.jsx';
 import AuthProviders from './components/providers/AuthProviders.jsx';
 import Recipe from './components/layout/Recipe.jsx';
 import Privaterouter from './components/PrivateRoute/Privaterouter.jsx'
+import ErrorPage from './components/layout/ErrorPage.jsx';
 
 
 
@@ -29,10 +30,10 @@ const router = createBrowserRouter([
       },
 
       {
-        path : "/:id",
+        path : "recipes/:id",
         element : <Privaterouter><Recipe></Recipe></Privaterouter>,
         
-        loader : ({params}) => fetch (`https://chef-hunter-server-rayhanuddinfarhad.vercel.app/${params.id}`)
+        loader : ({params}) => fetch (`https://chef-hunter-server-rayhanuddinfarhad.vercel.app/recipes/${params.id}`)
 
 
       },
@@ -50,6 +51,12 @@ const router = createBrowserRouter([
       }
     ]
   },
+
+  {
+
+    path : "*",
+    element : <ErrorPage></ErrorPage>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

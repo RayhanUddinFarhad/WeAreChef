@@ -21,7 +21,7 @@ const ChefList = ({ data }) => {
           </div>
           <div className="card-actions justify-end my-2">
 
-            <Link to = {`/${data.id}`}>      <button className="btn-main">View Recipes</button>
+            <Link to = {`recipes/${data.id}`}>      <button className="btn-main">View Recipes</button>
             </Link>
           </div>
         </div>
