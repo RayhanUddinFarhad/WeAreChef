@@ -2,6 +2,7 @@ import React from 'react';
 import { FaCookie } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { useLoaderData } from 'react-router-dom';
+import RecipeCard from '../pages/RecipeCard';
 
 const Recipe = () => {
 
@@ -42,9 +43,12 @@ const Recipe = () => {
 
             <div>
 
+               {
+
+                data.recipes && data.recipes.map (data => <RecipeCard data={data}></RecipeCard>)
+               }
 
 
-                
             </div>
 
 
