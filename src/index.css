@@ -6,3 +6,15 @@
 
   @apply bg-[#21B573] text-white py-2 px-6 rounded-xl
 }
+
+.blur-up {
+  filter: blur(20px);
+  transition: filter 0.3s ease-out;
+}
+.loading {
+  filter: blur(20px);
+}
+.loaded {
+  filter: blur(0px);
+  transition: filter 0.5s ease;
+}

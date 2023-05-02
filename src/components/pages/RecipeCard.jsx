@@ -28,6 +28,8 @@ const RecipeCard = ({ data }) => {
         <div>
 
             <div className="card  bg-base-100 my-5 shadow-xl">
+
+                
                 <figure><img className='w-96' src={data.recipePicture} alt="Shoes" /></figure>
                 <div className="card-body space-y-5">
                     <h2 className="text-4xl font-extrabold text-center">

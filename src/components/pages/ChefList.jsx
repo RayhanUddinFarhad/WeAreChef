@@ -2,13 +2,26 @@ import React, { useState } from 'react';
 import { FaCookie } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const ChefList = ({ data }) => {
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+
 
   return (
     <div>
       <div className="card max-w-max lg:w-96 h-full bg-base-100 shadow-xl">
-        <figure><img src={data.chefPicture} alt="Shoes" /></figure>
+
+      <LazyLoad offset={100} placeholder={<div>Loading...</div>}>
+  <img src= {data.chefPicture} alt="your-image-alt-text" />
+</LazyLoad>
+
         <div className="card-body">
           <h2 className="card-title">{data.chefName}</h2>
           <div className="badge badge-secondary">{data.yearsOfExperience} years of Experienced</div>

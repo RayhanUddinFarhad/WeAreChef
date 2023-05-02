@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
 
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,20 +53,20 @@ user ? <>
                     </div>
                     <a className="font-extrabold normal-case text-3xl"> WeAre<span className='text-green-600'>Chef</span> </a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1">
                         <li><ActiveLink to="/">Home</ActiveLink></li>
 
                         <li><ActiveLink to= "/blogs">Blog</ActiveLink></li>
                     </ul>
                 </div>
-                <div className="navbar-end hidden lg:block">
+                <div className="navbar-end items-center hidden lg:block">
 
                     {
 
                         user ? <>
-                            <div className="w-10 rounded-full avatar tooltip" data-tip={user.displayName && user.displayName}>
-                                <img src={user.photoURL} />
+                            <div className="w-10  tooltip" data-tip={user.displayName && user.displayName}>
+                                <img className='w-10 rounded-full' src={user.photoURL} />
 
                             </div>
                             <button onClick={handleLogOut} className='btn-main'>LogOut</button>
