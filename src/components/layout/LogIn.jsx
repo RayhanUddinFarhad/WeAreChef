@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -14,6 +14,7 @@ const LogIn = () => {
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
+    const [error, setError] = useState('')
 
 
 
@@ -41,6 +42,7 @@ const LogIn = () => {
 
 
             console.log (err);
+            setError  (`error ${err.message}`)
          })
 
 
@@ -97,6 +99,7 @@ const LogIn = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <p className='text-red-600'>{error}</p>
                         <Form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
