@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhyHire = () => {
     return (
-        <div className='my-10'>
+        <div className='my-20'>
             <h1 className='text-4xl font-semibold  border-green-600 text-center'>Why you will hire our <span className='text-green-600 font-bold'>Chefs</span>?
             <hr className=' bg-green-600 mx-96 text-center my-2 h-1' />
 

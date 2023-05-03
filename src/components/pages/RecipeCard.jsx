@@ -31,7 +31,7 @@ const RecipeCard = ({ data }) => {
 
             <div className="card  bg-base-100 my-5 shadow-xl">
 
-                
+
                 <figure><LazyLoadImage effect='black-and-white' className='w-96' src={data.recipePicture} /></figure>
                 <div className="card-body space-y-5">
                     <h2 className="text-4xl font-extrabold text-center">
@@ -69,14 +69,14 @@ const RecipeCard = ({ data }) => {
 
 
 
-                        <button onClick={() => sethandleClick(true) } className={handleClick ? 'btn-disabled flex items-center' : 'btn-main flex items-center'}> <FaHeart className='mr-3' ></FaHeart>
+                        <button onClick={() => sethandleClick(true)} className={handleClick ? 'btn-disabled flex items-center py-2 px-6 rounded-xl ' : 'btn-main flex items-center'}> <FaHeart className='mr-3' ></FaHeart>
                             Favourite</button>
 
 
 
                         <div>
 
-                           
+
 
 
                         </div>
@@ -86,8 +86,8 @@ const RecipeCard = ({ data }) => {
 
             {
 
-handleClick && toast.success(`Your favourite recipe ${data.recipeName} has been added`)
-}
+                handleClick && toast.success(`Your favourite recipe ${data.recipeName} has been added`)
+            }
 
         </div>
     );
