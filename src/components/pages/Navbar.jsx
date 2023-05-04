@@ -34,15 +34,18 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><ActiveLink to="/">Home</ActiveLink></li>
 
-                            <li><ActiveLink>Blog</ActiveLink></li>
+                            <li><ActiveLink to= "blogs">Blog</ActiveLink></li>
 
                             {
 
                                 user ? <>
-                                    <div className="w-10 tooltip mx-auto" data-tip={user.displayName && user.displayName}>
+                                    <div className="w-10 tooltip mx-auto flex justify-center items-center" data-tip={user.displayName && user.displayName}>
                                         <img className='w-10 rounded-full ' src={user.photoURL && user.photoURL} />
+                                        
 
                                     </div>
+                                    <button onClick={handleLogOut} className='btn-main'>Log Out</button>
+
 
                                 </> : <Link to="logIn" className="btn-main">Log In</Link>
 
@@ -64,10 +67,17 @@ const Navbar = () => {
                     {
 
                         user ? <>
-                            <div className="w-10  tooltip" data-tip={user.displayName && user.displayName}>
+                           <div className='flex justify-center items-center'>
+
+                           <div className="w-10  tooltip" data-tip={user.displayName && user.displayName}>
                                 <img className='w-10 rounded-full' src={ user.photoURL && user.photoURL} />
 
+
+
                             </div>
+                            <button onClick={handleLogOut} className='btn-main'>Log Out</button>
+                           </div>
+
 
                         </> : <Link to="logIn" className="btn-main">Log In</Link>
 

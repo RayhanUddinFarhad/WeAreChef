@@ -11,7 +11,7 @@ const Register = () => {
     let navigate = useNavigate();
     let location = useLocation();
 
-    let from = location.state?.from?.pathname || "/logIn";
+    let from = location.state?.from?.pathname || "/";
 
     const handleRegister = (e) => {
 
