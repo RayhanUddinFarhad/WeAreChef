@@ -100,12 +100,12 @@ const LogIn = () => {
     return (
         <div>
             <div className="hero min-h-screen ">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content max-w-max flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">To Enjoy Our All Features Please Log In Now</p>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card w-full max-w-sm shadow-2xl bg-base-100">
                         <p className='text-red-600'>{error}</p>
                         <Form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
