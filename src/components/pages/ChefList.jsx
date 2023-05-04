@@ -27,10 +27,10 @@ const ChefList = ({ data }) => {
           <div className="btn-secondary rounded-3xl">{data.yearsOfExperience} years of Experienced</div>
 
 
-          <div className='flex'>
+          <div className='lg:flex'>
 
-            <p className='flex items-center '> <FaCookie className='text-yellow-600 mr-2'></FaCookie> Recipes : {data.numRecipes}</p>
-            <p className='flex items-center'> <FcLike className='mr-2' /> Likes: {data.likes}</p>
+            <p className='flex items-center lg:text-lg  text-sm'> <FaCookie className='text-yellow-600 mr-2'></FaCookie> Recipes : {data.numRecipes}</p>
+            <p className='flex items-center lg:text-lg  text-sm'> <FcLike className='mr-2' /> Likes: {data.likes}</p>
           </div>
           <div className="card-actions justify-end my-2">
 
