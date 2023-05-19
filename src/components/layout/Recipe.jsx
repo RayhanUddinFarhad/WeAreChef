@@ -17,7 +17,7 @@ const Recipe = () => {
         <div>
             <div className='lg:flex justify-around my-10 items-center '>
 
-                <div className='w-[50%]'>
+                <div className='lg:w-[50%]'>
 
                     <h1 className='text-5xl font-bold text-green-600'>{data.chefName} </h1>
 

@@ -48,13 +48,13 @@ const RecipeCard = ({ data }) => {
 
                         {
 
-                            data.ingredients && data.ingredients.map((ing) => <p className=" bg-orange-400 w-96 text-white py-5 font-semibold my-2   rounded-lg ">{ing}</p>
+                            data.ingredients && data.ingredients.map((ing) => <p className=" bg-orange-400 lg:w-96 text-white py-5 font-semibold my-2   rounded-lg ">{ing}</p>
                             )
 
 
                         }
                     </div>
-                    <p> <span className='font-bold text-2xl px-10 '>Cooking Method:</span>   {data.cookingMethod}</p>
+                    <p> <span className='font-bold text-2xl lg:px-10 '>Cooking Method: <br /></span>   {data.cookingMethod}</p>
                     <div className="card-actions justify-end">
                         <p className='flex items-center'>
 
